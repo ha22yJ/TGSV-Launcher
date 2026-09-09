@@ -105,10 +105,16 @@ function changeAllowPrerelease(val){
 }
 
 function showUpdateUI(info){
-    //TODO Make this message a bit more informative `${info.version}`
     document.getElementById('image_seal_container').setAttribute('update', true)
-    document.getElementById('image_seal_container').onclick = () => {
-        /*setOverlayContent('Update Available', 'A new update for the launcher is available. Would you like to install now?', 'Install', 'Later')
+
+    const showUpdateOverlay = () => {
+        setOverlayContent(
+            'TGSV Launcher 업데이트 준비 완료',
+            `새 버전 ${info.version}이 다운로드되었습니다. 지금 업데이트를 설치하고 런처를 재시작하시겠습니까?`,
+            '지금 업데이트하고 재시작',
+            '나중에'
+        )
+
         setOverlayHandler(() => {
             if(!isDev){
                 ipcRenderer.send('autoUpdateAction', 'installUpdateNow')
@@ -117,14 +123,16 @@ function showUpdateUI(info){
                 toggleOverlay(false)
             }
         })
+
         setDismissHandler(() => {
             toggleOverlay(false)
         })
-        toggleOverlay(true, true)*/
-        switchView(getCurrentView(), VIEWS.settings, 500, 500, () => {
-            settingsNavItemListener(document.getElementById('settingsNavUpdate'), false)
-        })
+
+        toggleOverlay(true, true)
     }
+
+    document.getElementById('image_seal_container').onclick = showUpdateOverlay
+    showUpdateOverlay()
 }
 
 /* jQuery Example
