@@ -1,7 +1,7 @@
-# Custom Language File for Launcher Customizer
+# Custom Language File for TGSV Launcher
 
 [ejs.app]
-title = "Helios Launcher"
+title = "TGSV Launcher"
 
 [ejs.landing]
 mediaGitHubURL = "https://github.com/dscalzi/HeliosLauncher"
@@ -15,6 +15,6 @@ sourceGithubLink = "https://github.com/dscalZi/HeliosLauncher"
 supportLink = "https://github.com/dscalZi/HeliosLauncher/issues"
 
 [ejs.welcome]
-welcomeHeader = "WELCOME TO WESTEROSCRAFT"
-welcomeDescription = "Our mission is to recreate the universe imagined by author George RR Martin in his fantasy series, A Song of Ice and Fire.  Through the collaborative effort of thousands of community members, we have sought to create Westeros as accurately and precisely as possible within Minecraft.  The world we are creating is yours to explore.  Journey from Dorne to Castle Black, and if you aren’t afraid, beyond the Wall itself, but best not delay.  As the words of House Stark ominously warn: Winter is Coming."
-welcomeDescCTA = "You are just a few clicks away from Westeros."
+welcomeHeader = "종겜라 선릿밸리에 오신 것을 환영합니다!"
+welcomeDescription = "복잡한 설치 과정 없이 런처를 통해 서버 접속이 원활하게 가능하도록 구축한 프로그램입니다! TGSV Launcher는 Society: Sunlit Valley 서버 플레이에 필요한 모드와 설정을 자동으로 관리합니다."
+welcomeDescCTA = "이제 선릿밸리에서 새로운 모험을 시작해 보세요!"

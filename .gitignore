@@ -4,3 +4,7 @@
 /target/
 /logs/
 /dist/
+# Local backup files
+*.BACKUP.*
+*.BROKEN_BACKUP.*
+/app/assets/images.BACKUP/
