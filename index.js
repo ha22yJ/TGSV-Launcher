@@ -92,7 +92,14 @@ ipcMain.on('distributionIndexDone', (event, res) => {
 // Handle trash item.
 ipcMain.handle(SHELL_OPCODE.TRASH_ITEM, async (event, ...args) => {
     try {
-        await shell.trashItem(args[0])
+        const targetPath = path.resolve(args[0])
+
+        if(path.basename(path.dirname(targetPath)).toLowerCase() !== 'mods') {
+            throw new Error('Refusing to trash item outside a mods directory.')
+        }
+
+        await shell.trashItem(targetPath)
+
         return {
             result: true
         }
@@ -245,6 +252,19 @@ function createWindow() {
     Object.entries(data).forEach(([key, val]) => ejse.data(key, val))
 
     win.loadURL(pathToFileURL(path.join(__dirname, 'app', 'app.ejs')).toString())
+
+    // Security: prevent the main launcher window from opening or navigating to external pages.
+win.webContents.setWindowOpenHandler(() => {
+    return { action: 'deny' }
+})
+
+win.webContents.on('will-navigate', (event, url) => {
+    const localAppUrl = pathToFileURL(path.join(__dirname, 'app', 'app.ejs')).toString()
+
+    if(url !== localAppUrl) {
+        event.preventDefault()
+    }
+})
 
     /*win.once('ready-to-show', () => {
         win.show()
