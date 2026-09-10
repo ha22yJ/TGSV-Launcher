@@ -8,3 +8,4 @@
 *.BACKUP.*
 *.BROKEN_BACKUP.*
 /app/assets/images.BACKUP/
+/_archive_dist/
